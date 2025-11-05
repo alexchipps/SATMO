@@ -80,11 +80,6 @@ A set of academic and aerospace references are included in the `docs/` folder, i
 
 ---
 
-## 🤝 Contributing
-
-Pull requests, issues, and research discussions are welcome!
-
----
 
 ## 📜 License
 
