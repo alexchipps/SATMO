@@ -12,13 +12,7 @@ This repository is an academic and research-oriented resource for quick‑turn t
 
 ---
 
-## 🚀 Key Features
-
-* One‑node thermal model of orbiting spacecraft
-* Incorporates view factors for Earth albedo & IR
-* MATLAB implementation with adjustable orbital parameters
-* Consistent radiative flux handling (solar, albedo, and planetary IR)
-* Reference formulas for rapid spacecraft thermal budget evaluation
+TEST
 
 ---
 
