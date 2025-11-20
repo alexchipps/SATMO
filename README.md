@@ -1,8 +1,8 @@
 # SATMO
 
-**Spacecraft Albedo & Thermal Model (SATMO)**
+**Satellite Thermal Model (SATMO)**
 
-SATMO is a lightweight MATLAB-based thermal analysis tool designed to simulate the thermal environment of a small spherical spacecraft orbiting Earth. The model estimates absorbed radiation from three key sources:
+SATMO is a six-node thermal analysis MATLAB® program designed for small satellites in low-altitude circular orbits on Earth and beyond
 
 * Direct solar radiation
 * Earth albedo
