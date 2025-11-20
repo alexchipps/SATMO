@@ -4,7 +4,7 @@
 
 SATMO is a MATLAB® program designed for conducting preliminary thermal analysis of small satellites in low-altitude circular orbits around Earth and other Solar System bodies. SATMO currently supports satellites orbiting all major planets, the Moon, and Pluto.
 
-The satellite is modeled as a six-sided box, with one face-centered node per surface. The nomenclature for the satellite faces is defined below:
+The satellite is modeled as a six-sided box, with one face-centered node per surface. The satellite surfaces and orbital configuration are defined as below:
 | **Surface Name** | **Symbol** | **Description** |
 |------------------|------------|-----------------|
 | Zenith           | `zen`      | Faces away from the primary body |
@@ -13,6 +13,8 @@ The satellite is modeled as a six-sided box, with one face-centered node per sur
 | Aft              | `-v`       | Faces in the opposite direction of the orbital velocity vector |
 | North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
 | South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
+
+![Satellite Model](figures/Orbital Configuration.png)
 
 Heating contributions for a given satellite surface include:
 
