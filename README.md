@@ -1,94 +1,71 @@
-# SATMO
+# SATMO (Satellite Thermal Model)
 
-**Satellite Thermal Model (SATMO)**
+## Overview
 
-SATMO is a six-node thermal analysis MATLAB® program designed for small satellites in low-altitude circular orbits on Earth and beyond
+SATMO is a MATLAB® program designed for conducting preliminary thermal analysis of small satellites in low-altitude circular orbits around Earth and other Solar System bodies. SATMO currently supports satellites orbiting all major planets, the Moon, and Pluto.
 
-* Direct solar radiation
-* Earth albedo
-* Earth infrared (IR) emission
+The satellite is modeled as a six-sided box, with one face-centered node per surface. The nomenclature for the satellite faces is defined below:
+| **Surface Name** | **Symbol** | **Description** |
+|------------------|------------|-----------------|
+| Zenith           | `zen`      | Faces away from the primary body |
+| Nadir            | `nad`      | Faces the primary body, tangent to its surface |
+| Forward          | `+v`       | Faces in the direction of the orbital velocity vector |
+| Aft              | `-v`       | Faces in the opposite direction of the orbital velocity vector |
+| North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
+| South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
 
-This repository is an academic and research-oriented resource for quick‑turn thermal modeling, particularly useful for conceptual spacecraft design, student research, early‑phase thermal studies, and educational demonstrations.
+Heating contributions for a given satellite surface include:
+
+- Direct solar radiation  
+- Reflected solar radiation (albedo) from the primary body  
+- Infrared (IR) radiation emitted by the primary body  
+- Conduction between satellite surfaces  
+- Heaters  
+- Internal heat loads from electronics
+
+SATMO iteratively calculates the environmental heat fluxes on each satellite surface and updates each surface temperature over the specified time steps using an energy-balance method applied at each face-centered node.
+  
+---
+
+## Installation
+
+Download and run the `SATMO.mlappinstall` file. SATMO will then be available under the **APPS** tab in MATLAB.
 
 ---
 
-TEST
+## Instructions
+
+### 1. Populate the *Analysis Inputs* Tab
+
+- Select the analysis mode:  
+  - **Generic**: Runs simulations over a range of hot- and cold-case beta angles.  
+  - **Specific**: Runs simulations at one hot-case and one cold-case beta angle.
+- Enter beta angles, orbital parameters, simulation parameters, and primary-body constants.
+
+### 2. Populate the *Satellite Data* Tab
+
+- Specify physical, thermo-optical, heater, and solar-panel properties for each face.  
+- Populate the conduction-coefficient matrix.
+
+### 3. Run SATMO
+
+- If the model fails to run, try reducing the time step.
+
+### 4. Analyze the Results
+
+Available outputs include:
+- Environmental heat fluxes absorbed by the satellite surfaces  
+- Satellite surface temperatures  
+- Solar-panel power outputs (if applicable)  
 
 ---
 
-## 📂 Repository Structure
+## Acknowledgements
 
-```
-SATMO/
-├── src/               # MATLAB scripts and core model functions
-├── docs/              # Supplemental technical notes and references
-├── examples/          # Example configurations and plots
-└── README.md
-```
+This material is based upon work supported by the National Science Foundation (NSF) Graduate Research Fellowship Program under Grant No. DGE-2039655. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the NSF.
 
 ---
 
-## 🧠 Background
+## How to Cite
 
-This model is based on classical spacecraft thermal theory, using cross‑sectional area absorption for direct solar load and spherical view factors for diffuse Earth albedo and IR loads.
-
-The governing energy balance is:
-$$
-Q_{in} - Q_{out} = m c_p \frac{dT}{dt}
-$$
-
-Where inputs include:
-
-* Solar constant
-* Planetary albedo
-* Planetary IR emission
-* Emissivity/absorptivity
-* Orbit geometry
-
----
-
-## ✅ Usage
-
-Clone the repo and run the main MATLAB script:
-
-```matlab
-run('satmo_main.m')
-```
-
-Adjust spacecraft and orbit parameters inside the configuration block.
-
----
-
-## 📎 References
-
-A set of academic and aerospace references are included in the `docs/` folder, including view factor derivations and standard spacecraft thermal constants.
-
----
-
-## 🛠 Future Plans
-
-* Multi‑node expansion
-* Better orbital propagator
-* Non‑spherical geometry support
-* GUI front‑end (MATLAB App Designer)
-
----
-
-
-## 📜 License
-
-MIT License
-
----
-
-## ✨ Acknowledgements
-
-Developed as part of independent spacecraft thermal modeling research. Special thanks to open aerospace communities and academic contributors.
-
----
-
-## 👨‍🚀 Maintainer
-
-**SATMO Developer**
-
-If you'd like to explore spacecraft thermal topics or collaborate, feel free to reach out!
+TBD
