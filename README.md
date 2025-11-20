@@ -31,7 +31,7 @@ SATMO iteratively calculates the environmental heat fluxes on each satellite sur
 
 ## Installation
 
-Download and run the `SATMO.mlappinstall` file. SATMO will then be available under the **APPS** tab in MATLAB.
+Download and run the `SATMO.mltbx` file. SATMO will then be available under the **APPS** tab in MATLAB.
 
 ---
 
