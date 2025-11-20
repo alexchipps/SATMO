@@ -14,7 +14,7 @@ The satellite is modeled as a six-sided box, with one face-centered node per sur
 | North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
 | South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
 
-![Satellite Model](figures/Orbital Configuration.png)
+<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="75%">
 
 Heating contributions for a given satellite surface include:
 
