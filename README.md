@@ -1,4 +1,4 @@
-# SATMO (Satellite Thermal Model)
+# Satellite Thermal Model (SATMO)
 SATMO is a MATLAB® program designed for conducting preliminary thermal analysis of small satellites in low-altitude circular orbits around Earth and other Solar System bodies. SATMO currently supports satellites orbiting all major planets, the Moon, and Pluto.
 
 ## Installation
