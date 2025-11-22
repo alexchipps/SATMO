@@ -1,42 +1,15 @@
 # SATMO (Satellite Thermal Model)
-
-## Overview
-
 SATMO is a MATLAB® program designed for conducting preliminary thermal analysis of small satellites in low-altitude circular orbits around Earth and other Solar System bodies. SATMO currently supports satellites orbiting all major planets, the Moon, and Pluto.
-
-The satellite is modeled as a six-sided box, with one face-centered node per surface. The satellite surfaces and orbital configuration are defined as below:
-| **Surface Name** | **Symbol** | **Description** |
-|------------------|------------|-----------------|
-| Zenith           | `zen`      | Faces away from the primary body |
-| Nadir            | `nad`      | Faces the primary body, tangent to its surface |
-| Forward          | `+v`       | Faces in the direction of the orbital velocity vector |
-| Aft              | `-v`       | Faces in the opposite direction of the orbital velocity vector |
-| North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
-| South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
-
-<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="65%">
-
-Heating contributions for a given satellite surface include:
-
-- Direct solar radiation  
-- Reflected solar radiation (albedo) from the primary body  
-- Infrared (IR) radiation emitted by the primary body  
-- Conduction between satellite surfaces  
-- Heaters  
-- Internal heat loads from electronics
-
-SATMO iteratively calculates the environmental heat fluxes on each satellite surface and updates each surface temperature over the specified time steps using an energy-balance method applied at each face-centered node.
-  
----
 
 ## Installation
 
 Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be available under the **APPS** tab in MATLAB.
 
-
 ---
-
 ## Instructions
+
+<details>
+<summary>Click to expand</summary>
 
 ### 1. Populate the *Analysis Inputs* Tab
 
@@ -59,14 +32,87 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
 Available outputs include:
 - Environmental heat fluxes absorbed by the satellite surfaces  
 - Satellite surface temperatures  
-- Solar-panel power outputs (if applicable)  
+- Solar-panel power outputs (if applicable)
+
+
+</details>
+
+
+
+---
+## Satellite Surfaces
+<details>
+<summary>Click to expand</summary>
+  
+The satellite is modeled as a six-sided box, with one face-centered node per surface.
+
+| **Surface Name** | **Symbol** | **Description** |
+|------------------|------------|-----------------|
+| Zenith           | `zen`      | Faces away from the primary body |
+| Nadir            | `nad`      | Faces the primary body, tangent to its surface |
+| Forward          | `+v`       | Faces in the direction of the orbital velocity vector |
+| Aft              | `-v`       | Faces in the opposite direction of the orbital velocity vector |
+| North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
+| South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
+
+<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="65%">
+
+-  θ (orbit angle): Satellite position along its orbit, measured from the subsolar point of the orbit (solar noon).
+-  β (beta angle): Angle between the primary body-sun vector and the satellite orbital plane.
+
+
+</details>
+
+---
+## Heat Sources 
+
+<details>
+<summary>Click to expand</summary>
+  
+- Direct solar radiation  
+- Reflected solar radiation (albedo) from the primary body  
+- Infrared (IR) radiation emitted by the primary body  
+- Conduction between satellite surfaces  
+- Heaters  
+- Internal heat loads from electronics
+
+SATMO iteratively calculates the heating contributions on each satellite surface and updates each surface temperature over the specified time steps using an energy-balance method applied at each face-centered node.
+
+</details>
 
 ---
 
-## Validation Inputs
+
+## Modeling Assumptions
+<details>
+<summary>Click to expand</summary>
+
+- The satellite is modeled as a box with one face-centered node per surface  
+- Material properties are constant over each face
+- The satellite orbit is circular and low altitude (<< primary body radius)  
+- The only orbital perturbation factor included is the J2 effect
+- The satellite attitude is nadir-pointing at all times
+- The shadow model is cylindrical and only includes the umbra region, neglecting effects from ring structures and moons if applicable
+- The primary body is uniformly illuminated beneath the satellite
+- The Sun-primary body system is fixed in space, and only the satellite moves using 2-body orbital dynamics  
+- The primary body does not block the satellite's view to space when exchanging thermal radiation with deep space
+- Free molecular heating and charged particle heating are neglected
+- Internal radiation between satellite surfaces is not included
+- All solar energy incident on the solar panels is absorbed as heat in the hot case 
+- Power is continuously drawn off the solar arrays in the cold case
+- Light-time delay in computing solar longitude from JPL Horizons is ignored, meaning the raw apparent solar longitude from Horizons is approximated as the true solar longitude  
+- Area-weighted thermo-optical properties are used when solar panels cover part of a satellite face  
+- Primary body properties and heating parameters are constant
+
+</details>
+
+  
+
+---
+## Inputs used in Validating SATMO with Thermal Desktop®
 
 <details>
-<summary>Click to see parameters used to validate SATMO against Thermal Desktop®</summary>
+<summary>Click to expand</summary>
   
 ### **Test matrix**
 | **Test Case** | **Primary body** | **Beta angle, deg** | **Orbit altitude, km** | **Simulation duration, s** | **Time step, s** |
