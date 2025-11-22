@@ -89,7 +89,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 
 - The satellite is modeled as a box with one face-centered node per surface  
 - Material properties are constant over each face
-- The satellite orbit is circular and low altitude (<< primary body radius)  
+- The satellite orbit is circular and low altitude (altitude << primary body radius)  
 - The only orbital perturbation factor included is the J2 effect
 - The satellite attitude is nadir-pointing at all times
 - The shadow model is cylindrical and only includes the umbra region, neglecting effects from ring structures and moons if applicable
