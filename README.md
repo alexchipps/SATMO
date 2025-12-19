@@ -8,9 +8,6 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
 ---
 ## Instructions
 
-<details>
-<summary>Click to expand</summary>
-
 ### 1. Populate the *Analysis Inputs* Tab
 
 - Select the analysis mode:  
@@ -35,8 +32,6 @@ Available outputs include:
 - Solar-panel power outputs (if applicable)
 
 
-</details>
-
 
 
 ---
@@ -55,7 +50,7 @@ The satellite is modeled as a six-sided box, with one face-centered node per sur
 | North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
 | South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
 
-<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="65%">
+<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="60%">
 
 -  θ (orbit angle): Satellite position along its orbit, measured from the subsolar point of the orbit (solar noon).
 -  β (beta angle): Angle between the primary body-sun vector and the satellite orbital plane.
