@@ -1,5 +1,5 @@
 # Satellite Thermal Model (SATMO)
-SATMO is a MATLAB® program designed for conducting preliminary thermal analysis of small satellites in low-altitude circular orbits around Earth and other Solar System bodies. SATMO currently supports satellites orbiting all major planets, the Moon, and Pluto.
+SATMO is a MATLAB® program designed for conducting preliminary thermal analysis of small satellites in low-altitude circular orbits around Earth and other Solar System bodies. SATMO currently supports satellites orbiting all major planets, the Moon, and Pluto. For more info, view the corresponding [SATMO paper](https://arxiv.org/abs/2512.07896).
 
 ## Installation
 
@@ -50,7 +50,7 @@ The satellite is modeled as a six-sided box, with one face-centered node per sur
 | North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
 | South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
 
-<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="60%">
+<img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="50%">
 
 -  θ (orbit angle): Satellite position along its orbit, measured from the subsolar point of the orbit (solar noon).
 -  β (beta angle): Angle between the primary body-sun vector and the satellite orbital plane.
