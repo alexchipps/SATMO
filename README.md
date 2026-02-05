@@ -16,12 +16,12 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
 
 - Select the analysis mode:  
   - **Generic**: Runs simulations over a range of hot- and cold-case beta angles.  
-  - **Specific**: Runs simulations at one hot-case and one cold-case beta angle.
+  - **Specific**: Runs simulations at one hot- and one cold-case beta angle.
 - Enter beta angles, orbital parameters, simulation parameters, and primary-body constants.
 
 ### 2. Populate the *Satellite Data* Tab
 
-- Specify physical, thermo-optical, heater, and solar-panel properties for each face.  
+- Specify physical, thermo-optical, heater, and solar-panel properties for each face and the internal component.  
 - Populate the conduction-coefficient matrix.
 
 ### 3. Run SATMO
@@ -32,28 +32,28 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
 
 Available outputs include:
 - Environmental heat fluxes absorbed by the satellite surfaces  
-- Satellite surface temperatures  
+- Satellite surface and internal node temperatures  
 - Solar-panel power outputs (if applicable)
 
 
 
 
 ---
-## Satellite Surfaces
+## Satellite Nodes
 <details>
 <summary>Click to expand</summary>
   
-The satellite is modeled as a six-sided box, with one face-centered node per surface.
+The satellite is modeled as a six-sided box, with one face-centered node per surface and one internal node representing a component inside the satellite
 
-| **Surface Name** | **Symbol** | **Description** |
+| **Node Name** | **Symbol** | **Description** |
 |------------------|------------|-----------------|
-| Zenith           | `zen`      | Faces away from the primary body |
-| Nadir            | `nad`      | Faces the primary body, tangent to its surface |
-| Forward          | `+v`       | Faces in the direction of the orbital velocity vector |
-| Aft              | `-v`       | Faces in the opposite direction of the orbital velocity vector |
-| North            | `N`        | Faces out of the page when viewing the orbit plane from the top down |
-| South            | `S`        | Faces into the page when viewing the orbit plane from the top down |
-
+| Zenith           | `zen`      | On the surfcae that faces away from the primary body |
+| Nadir            | `nad`      | On the surface that faces the primary body, tangent to its surface |
+| Forward          | `+v`       | On the surface that faces in the direction of the orbital velocity vector |
+| Aft              | `-v`       | On the surface that faces in the opposite direction of the orbital velocity vector |
+| North            | `N`        | On the surface that faces out of the page when viewing the orbit plane from the top down |
+| South            | `S`        | On the surface that faces into the page when viewing the orbit plane from the top down |
+| Internal         | `int`      | Represents a component within the satellite |
 <img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="50%">
 
 -  θ (orbit angle): Satellite position along its orbit, measured from the subsolar point of the orbit (solar noon).
@@ -137,7 +137,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | **IR flux, W/m²**         | 153           | 218           | 315            |
 
 
-### Properties of each satellite face
+### Properties of each satellite Surface
 | **SATMO Field**              | **Input** |
 |-------------------------------|-----------|
 | Mass (kg)                     | 0.25      |
@@ -146,7 +146,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | Absorptivity                  | 1.0       |
 | Emissivity                    | 1.0       |
 | Initial temperature (°C)      | 20.0      |
-| Internal heat load (W)        | 0.50      |
+| Additional heat load (W)      | 0.50      |
 
 
 ### Heaters and heater control properties of each satellite face
