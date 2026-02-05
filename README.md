@@ -86,8 +86,8 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 <details>
 <summary>Click to expand</summary>
 
-- The satellite is modeled as a box with one face-centered node per surface  
-- Material properties are constant over each face
+- The satellite is modeled as a box with one face-centered node per surface and one internal node 
+- Material properties are constant over each face and component
 - The satellite orbit is circular and low altitude (altitude << primary body radius)  
 - The only orbital perturbation factor included is the J2 effect
 - The satellite attitude is nadir-pointing at all times
@@ -137,7 +137,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | **IR flux, W/m²**         | 153           | 218           | 315            |
 
 
-### Properties of each satellite Surface
+### Properties of each satellite surface
 | **SATMO Field**              | **Input** |
 |-------------------------------|-----------|
 | Mass (kg)                     | 0.25      |
