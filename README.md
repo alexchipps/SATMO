@@ -189,4 +189,4 @@ This material is based upon work supported by the National Science Foundation (N
 
 ## How to Cite
 
-TBD
+Alexander Chipps, Daniel Forgette and Kerri Cahoy. "SATMO: A Multi-Planet Thermal Analysis Tool for CubeSat Missions," AIAA 2026-2269. AIAA SCITECH 2026 Forum. January 2026.
