@@ -37,7 +37,6 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
 - If the model fails to run, try reducing the time step.
 
 ### 4. Analyze the Results
-
 Available outputs include:
 - Beta angle evolution and % of orbit in sunlight over calendar date (specific analysis mode)
 - Environmental heat fluxes absorbed by the satellite surfaces  
