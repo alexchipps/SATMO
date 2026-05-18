@@ -121,7 +121,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 <summary>Click to expand</summary>
   
 ### **Test matrix**
-| **Test Case** | **Primary body** | **Beta angle, deg** | **Orbit altitude, km** | **Simulation duration, s** | **Time step, s** |
+| **Test Case** | **Primary body** | **Beta angle (deg)** | **Orbit altitude (km)** | **Simulation duration (s)** | **Time step (s)** |
 |---------------|-----------------|-------------------|----------------------|---------------------------|-----------------|
 | 1             | Earth           | 0                 | 400                  | 27,768.10                 | 1.0             |
 | 2             | Earth           | 45                | 400                  | 27,768.10                 | 1.0             |
@@ -135,14 +135,14 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 ### **Planetary data constants**
 |                           | **Venus**     | **Earth**     | **Moon**       |   **Mars**     |
 |---------------------------|---------------|---------------|----------------|----------------|
-| **Radius, km**            | 6,051.800     | 6,378.137     | 1738.100      |  3,396.200
-| **Mass, kg**              | 4.8673e+24    | 5.9722e+24    | 7.3460e+22     | 6.4169e+23 
-| **Equatorial inclination, deg** | 2.64    | 23.44         | 1.54          | 25.19 
+| **Radius (km)**            | 6,051.800     | 6,378.137     | 1738.100      |  3,396.200
+| **Mass (kg)**              | 4.8673e+24    | 5.9722e+24    | 7.3460e+22     | 6.4169e+23 
+| **Equatorial inclination (deg)** | 2.64    | 23.44         | 1.54          | 25.19 
 | **J2 constant**           | 4.45800e-6    | 1.08263e-3    | 2.27000e-4     | 1.96045e-3
-| **Solar flux, W/m²**      | 2,759         | 1,414         | 1,421            | 717   
+| **Solar flux (W/m²)**      | 2,759         | 1,414         | 1,421            | 717   
 | **Albedo factor**         | 0.82          | 0.40          | 0.073           | 0.29
-| **Sun-side IR flux, W/m²**| 153           | 275           | 1,314            | 315
-| **Dark-side IR flux, W/m²**| 153           | 275          | 5.2            | 315
+| **Sun-side IR flux (W/m²)**| 153           | 275           | 1,314            | 315
+| **Dark-side IR flux, (W/m²)**| 153           | 275          | 5.2            | 315
 
 
 ### Properties of each satellite surface
