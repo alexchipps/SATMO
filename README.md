@@ -18,11 +18,19 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
   - **Generic**: Runs simulations over a range of hot- and cold-case beta angles.  
   - **Specific**: Runs simulations at one hot- and one cold-case beta angle.
 - Enter beta angles, orbital parameters, simulation parameters, and primary-body constants.
+  
+<p align="center">
+  <img src="figures/Analysis Page Example.png" alt="SATMO Analysis" width="50%">
+</p>
 
 ### 2. Populate the *Satellite Data* Tab
 
 - Specify physical, thermo-optical, heater, and solar-panel properties for each face and the internal component.  
 - Populate the conduction-coefficient matrix.
+
+<p align="center">
+  <img src="figures/Satellite Data Page Example.png" alt="SATMO Example" width="50%">
+</p>
 
 ### 3. Run SATMO
 
@@ -31,6 +39,7 @@ Download and run the [`SATMO.mltbx`](SATMO.mltbx) file. SATMO will then be avail
 ### 4. Analyze the Results
 
 Available outputs include:
+- Beta angle evolution and % of orbit in sunlight over calendar date (specific analysis mode)
 - Environmental heat fluxes absorbed by the satellite surfaces  
 - Satellite surface and internal node temperatures  
 - Solar-panel power outputs (if applicable)
@@ -43,16 +52,16 @@ Available outputs include:
 <details>
 <summary>Click to expand</summary>
   
-The satellite is modeled as a six-sided box, with one face-centered node per surface and one internal node representing a component inside the satellite
+The satellite is modeled as a six-sided box, with one face-centered node per surface and one internal node representing a component inside the satellite.
 
 | **Node Name** | **Symbol** | **Description** |
 |------------------|------------|-----------------|
-| Zenith           | `zen`      | On the surfcae that faces away from the primary body |
-| Nadir            | `nad`      | On the surface that faces the primary body, tangent to its surface |
-| Forward          | `+v`       | On the surface that faces in the direction of the orbital velocity vector |
-| Aft              | `-v`       | On the surface that faces in the opposite direction of the orbital velocity vector |
-| North            | `N`        | On the surface that faces out of the page when viewing the orbit plane from the top down |
-| South            | `S`        | On the surface that faces into the page when viewing the orbit plane from the top down |
+| Zenith           | `zen`      | On the surfcae opposing the primary body |
+| Nadir            | `nad`      | On the surface facing the primary body |
+| Forward          | `+v`       | On the surface facing the orbital velocity vector |
+| Aft              | `-v`       | On the surface opposing orbital velocity vector |
+| North            | `N`        | On the surface facing the orbit normal vector |
+| South            | `S`        | On the surface opposing the orbit normal vector |
 | Internal         | `int`      | Represents a component within the satellite |
 <img src="figures/Orbital_Configuration.png" alt="Satellite Model" width="50%">
 
@@ -92,16 +101,15 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 - The only orbital perturbation factor included is the J2 effect
 - The satellite attitude is nadir-pointing at all times
 - The shadow model is cylindrical and only includes the umbra region, neglecting effects from ring structures and moons if applicable
-- The primary body is uniformly illuminated beneath the satellite
 - The Sun-primary body system is fixed in space, and only the satellite moves using 2-body orbital dynamics  
 - The primary body does not block the satellite's view to space when exchanging thermal radiation with deep space
 - Free molecular heating and charged particle heating are neglected
-- Internal radiation between satellite surfaces is not included
+- Internal radiation within the satellite is not modeled
 - All solar energy incident on the solar panels is absorbed as heat in the hot case 
 - Power is continuously drawn off the solar arrays in the cold case
 - Light-time delay in computing solar longitude from JPL Horizons is ignored, meaning the raw apparent solar longitude from Horizons is approximated as the true solar longitude  
 - Area-weighted thermo-optical properties are used when solar panels cover part of a satellite face  
-- Primary body properties and heating parameters are constant
+- Primary body properties and heating parameters inputs are constant
 
 </details>
 
@@ -116,25 +124,26 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 ### **Test matrix**
 | **Test Case** | **Primary body** | **Beta angle, deg** | **Orbit altitude, km** | **Simulation duration, s** | **Time step, s** |
 |---------------|-----------------|-------------------|----------------------|---------------------------|-----------------|
-| 1             | Earth           | 0                 | 400                  | 27,768.1                  | 1.0             |
-| 2             | Earth           | 45                | 400                  | 27,768.1                  | 1.0             |
-| 3             | Earth           | 45                | 800                  | 30,262.0                  | 1.0             |
-| 4             | Earth           | 45                | 35,786               | 430,819                   | 1.0             |
-| 5             | Earth           | 90                | 400                  | 27,768.1                  | 1.0             |
-| 6             | Mars            | 45                | 400                  | 35,506.5                  | 1.0             |
-| 7             | Venus           | 45                | 400                  | 28,564.3                  | 1.0             |
-
+| 1             | Earth           | 0                 | 400                  | 27,768.10                 | 1.0             |
+| 2             | Earth           | 45                | 400                  | 27,768.10                 | 1.0             |
+| 3             | Earth           | 45                | 800                  | 30,262.00                 | 1.0             |
+| 4             | Earth           | 45                | 35,786               | 430,819.00                | 1.0             |
+| 5             | Earth           | 90                | 400                  | 27,768.10                 | 1.0             |
+| 6             | Mars            | 45                | 400                  | 35,506.50                 | 1.0             |
+| 7             | Venus           | 45                | 400                  | 28,564.30                 | 1.0             |
+| 8             | Moon            | 45                | 400                  | 44,357.15                 | 1.0             |
 
 ### **Planetary data constants**
-|                           | **Venus**     | **Earth**     | **Mars**       |
-|---------------------------|---------------|---------------|----------------|
-| **Radius, km**            | 6,051.800     | 6,378.137     | 3,396.200      |
-| **Mass, kg**              | 4.8673e+24    | 5.9722e+24    | 6.4169e+23     |
-| **Equatorial inclination, deg** | 2.64    | 23.44         | 25.19          |
-| **J2 constant**           | 4.45800e-6    | 1.08263e-3    | 1.96045e-3     |
-| **Solar flux, W/m²**      | 2,759         | 1,414         | 717            |
-| **Albedo factor**         | 0.82          | 0.40          | 0.29           |
-| **IR flux, W/m²**         | 153           | 218           | 315            |
+|                           | **Venus**     | **Earth**     | **Moon**       |   **Mars**     |
+|---------------------------|---------------|---------------|----------------|----------------|
+| **Radius, km**            | 6,051.800     | 6,378.137     | 1738.100      |  3,396.200
+| **Mass, kg**              | 4.8673e+24    | 5.9722e+24    | 7.3460e+22     | 6.4169e+23 
+| **Equatorial inclination, deg** | 2.64    | 23.44         | 1.54          | 25.19 
+| **J2 constant**           | 4.45800e-6    | 1.08263e-3    | 2.27000e-4     | 1.96045e-3
+| **Solar flux, W/m²**      | 2,759         | 1,414         | 1,421            | 717   
+| **Albedo factor**         | 0.82          | 0.40          | 0.073           | 0.29
+| **Sun-side IR flux, W/m²**| 153           | 275           | 1,314            | 315
+| **Dark-side IR flux, W/m²**| 153           | 275          | 5.2            | 315
 
 
 ### Properties of each satellite surface
@@ -181,6 +190,9 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 
 </details>
 
+
+
+---
 ## Acknowledgements
 
 This material is based upon work supported by the National Science Foundation (NSF) Graduate Research Fellowship Program under Grant No. DGE-2039655. Any opinions, findings, conclusions, or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the NSF.
