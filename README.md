@@ -115,7 +115,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
   
 
 ---
-## Inputs used in Validating SATMO with Thermal Desktop®
+## Inputs used for Validating SATMO with Thermal Desktop®
 
 <details>
 <summary>Click to expand</summary>
@@ -143,6 +143,8 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | V2 | Venus | 45 | 400 | 28,564.30 | 1.0 |
 | V3 | Venus | 90 | 400 | 28,564.30 | 1.0 |
 
+
+
 ### **Planetary data constants**
 |                           | **Venus**     | **Earth**     | **Moon**       |   **Mars**     |
 |---------------------------|---------------|---------------|----------------|----------------|
@@ -154,6 +156,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | **Albedo factor**         | 0.82          | 0.40          | 0.073           | 0.29
 | **Sun-side IR flux (W/m²)**| 153           | 275           | 1,314            | 315
 | **Dark-side IR flux, (W/m²)**| 153           | 275          | 5.2            | 315
+
 
 
 ### Properties of each satellite surface
@@ -168,6 +171,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | Additional heat load (W)      | 0.50      |
 
 
+
 ### Heaters and heater control properties of each satellite face
 | **SATMO Field**        | **Input** |
 |------------------------|-----------|
@@ -175,6 +179,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | Bang-bang control      | On        |
 | On trigger (°C)        | 0.0       |
 | Off trigger (°C)       | 10.0      |
+
 
 
 ### Solar panel properties of each satellite face
@@ -185,6 +190,7 @@ SATMO iteratively calculates the heating contributions on each satellite surface
 | Efficiency             | N/A       |
 | Absorptivity           | N/A       |
 | Emissivity             | N/A       |
+
 
 
 ### **Conductance matrix between surfaces of the satellite in this work, in W/K**
